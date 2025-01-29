@@ -30,6 +30,11 @@ function calculateResult() {
     let result;
     const secondOperand = currentInput;
 
+    if (currentOperation === "/" && parseFloat(secondOperand) === 0) {
+        display.value = "Error";
+        return;
+    }
+
     switch (currentOperation) {
         case "+":
             result = parseFloat(firstOperand) + parseFloat(secondOperand);
@@ -52,3 +57,4 @@ function calculateResult() {
     firstOperand = "";
     currentOperation = "";
 }
+

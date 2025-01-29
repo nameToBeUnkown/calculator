@@ -7,31 +7,32 @@
     <link href="style.css" rel="stylesheet" />
   </head>
   <body>
-    <div id="q">
-      <input type="text" class="w" id="r" readonly />
+    <div class="calculator">
+      <input type="text" class="display" id="display" readonly />
+
       <div>
-        <button class="e" onclick="a('7')">7</button>
-        <button class="e" onclick="a('8')">8</button>
-        <button class="e" onclick="a('9')">9</button>
-        <button class="e" onclick="b('/')">/</button>
+        <button class="button" onclick="appendNumber('7')">7</button>
+        <button class="button" onclick="appendNumber('8')">8</button>
+        <button class="button" onclick="appendNumber('9')">9</button>
+        <button class="button" onclick="chooseOperation('/')">/</button>
       </div>
       <div>
-        <button class="e" onclick="a('4')">4</button>
-        <button class="e" onclick="a('5')">5</button>
-        <button class="e" onclick="a('6')">6</button>
-        <button class="e" onclick="b('*')">*</button>
+        <button class="button" onclick="appendNumber('4')">4</button>
+        <button class="button" onclick="appendNumber('5')">5</button>
+        <button class="button" onclick="appendNumber('6')">6</button>
+        <button class="button" onclick="chooseOperation('*')">*</button>
       </div>
       <div>
-        <button class="e" onclick="a('1')">1</button>
-        <button class="e" onclick="a('2')">2</button>
-        <button class="e" onclick="a('3')">3</button>
-        <button class="e" onclick="b('-')">-</button>
+        <button class="button" onclick="appendNumber('1')">1</button>
+        <button class="button" onclick="appendNumber('2')">2</button>
+        <button class="button" onclick="appendNumber('3')">3</button>
+        <button class="button" onclick="chooseOperation('-')">-</button>
       </div>
       <div>
-        <button class="e" onclick="a('0')">0</button>
-        <button class="e" onclick="c()">C</button>
-        <button class="e" onclick="d()">=</button>
-        <button class="e" onclick="b('+')">+</button>
+        <button class="button" onclick="appendNumber('0')">0</button>
+        <button class="button" onclick="clearDisplay()">C</button>
+        <button class="button" onclick="calculateResult()">=</button>
+        <button class="button" onclick="chooseOperation('+')">+</button>
       </div>
     </div>
 

@@ -25,30 +25,37 @@ function clearDisplay() {
     display.value = "";
 }
 
+function performCalculation(first, second, operation) {
+    const num1 = parseFloat(first);
+    const num2 = parseFloat(second);
+
+    switch (operation) {
+        case "+":
+            return num1 + num2;
+        case "-":
+            return num1 - num2;
+        case "*":
+            return num1 * num2;
+        case "/":
+            return num1 / num2;
+        default:
+            return null;
+    }
+}
+
 function calculateResult() {
     if (currentInput === "" || firstOperand === "") return;
-    let result;
-    const secondOperand = currentInput;
 
-    switch (currentOperation) {
-        case "+":
-            result = parseFloat(firstOperand) + parseFloat(secondOperand);
-            break;
-        case "-":
-            result = parseFloat(firstOperand) - parseFloat(secondOperand);
-            break;
-        case "*":
-            result = parseFloat(firstOperand) * parseFloat(secondOperand);
-            break;
-        case "/":
-            result = parseFloat(firstOperand) / parseFloat(secondOperand);
-            break;
-        default:
-            return;
+    const result = performCalculation(
+        firstOperand,
+        currentInput,
+        currentOperation
+    );
+
+    if (result !== null) {
+        display.value = result;
+        currentInput = result.toString();
+        firstOperand = "";
+        currentOperation = "";
     }
-
-    display.value = result;
-    currentInput = result.toString();
-    firstOperand = "";
-    currentOperation = "";
 }

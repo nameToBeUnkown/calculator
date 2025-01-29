@@ -13,7 +13,7 @@ function chooseOperation(operation) {
     if (firstOperand !== "") {
         calculateResult();
     }
-    firstOperand = currentInput;
+    firstOperand = parseFloat(currentInput);
     currentOperation = operation;
     currentInput = "";
 }
@@ -28,20 +28,20 @@ function clearDisplay() {
 function calculateResult() {
     if (currentInput === "" || firstOperand === "") return;
     let result;
-    const secondOperand = currentInput;
+    const secondOperand = parseFloat(currentInput);
 
     switch (currentOperation) {
         case "+":
-            result = parseFloat(firstOperand) + parseFloat(secondOperand);
+            result = firstOperand + secondOperand;
             break;
         case "-":
-            result = parseFloat(firstOperand) - parseFloat(secondOperand);
+            result = firstOperand - secondOperand;
             break;
         case "*":
-            result = parseFloat(firstOperand) * parseFloat(secondOperand);
+            result = firstOperand * secondOperand;
             break;
         case "/":
-            result = parseFloat(firstOperand) / parseFloat(secondOperand);
+            result = firstOperand / secondOperand;
             break;
         default:
             return;

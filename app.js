@@ -1,33 +1,14 @@
-let s=document.getElementById('r');
-let t='';
-let u='';
-let v='';
+let currentInput='';let firstOperand='';let currentOperation='';const display=document.getElementById('display');
 
-function a(x){
-    t+=x;
-    s.value=t;
-}
+function appendNumber(number){currentInput+=number;display.value=currentInput;}
 
-function b(y){
-    u=t;
-    v=y;
-    t='';
-    s.value='';
-}
+function chooseOperation(operation){if(currentInput==='')return;if(firstOperand!==''){calculateResult();}
+firstOperand=currentInput;currentOperation=operation;currentInput='';}
 
-function c(){
-    t='';
-    u='';
-    v='';
-    s.value='';
-}
+function clearDisplay(){currentInput='';firstOperand='';currentOperation='';display.value='';}
 
-function d(){
-    let w=0;
-    if(v=='+')w=parseFloat(u)+parseFloat(t);
-    else if(v=='-')w=parseFloat(u)-parseFloat(t);
-    else if(v=='*')w=parseFloat(u)*parseFloat(t);
-    else if(v=='/')w=parseFloat(u)/parseFloat(t);
-    s.value=w;
-    t=w.toString();
-}
+function calculateResult(){if(currentInput===''||firstOperand==='')return;let result;const secondOperand=currentInput;
+
+switch(currentOperation){case'+':result=parseFloat(firstOperand)+parseFloat(secondOperand);break;case'-':result=parseFloat(firstOperand)-parseFloat(secondOperand);break;case'*':result=parseFloat(firstOperand)*parseFloat(secondOperand);break;case'/':result=parseFloat(firstOperand)/parseFloat(secondOperand);break;default:return;}
+
+display.value=result;currentInput=result.toString();firstOperand='';currentOperation='';}

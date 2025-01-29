@@ -18,11 +18,11 @@ function chooseOperation(operation) {
     currentInput = "";
 }
 
-function clearDisplay() {
-    currentInput = "";
+function setDisplayValue(value = "") {
+    currentInput = value;
+    display.value = parseFloat(value);
     firstOperand = "";
     currentOperation = "";
-    display.value = "";
 }
 
 function calculateResult() {
@@ -47,8 +47,5 @@ function calculateResult() {
             return;
     }
 
-    display.value = result;
-    currentInput = result.toString();
-    firstOperand = "";
-    currentOperation = "";
+    setDisplayValue(result);
 }

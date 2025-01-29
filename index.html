@@ -1,81 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bad Code Calculator</title>
-    <style>
-        *{box-sizing: border-box;}
-        body{font-family:Arial,sans-serif;margin:0;padding:0;background-color:#f0f0f0;display:flex;justify-content:center;align-items:center;height:100vh;}
-        #q{background-color:#fff;padding:20px;border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,0.1);}
-        .w{width:100%;padding:10px;margin:5px 0;font-size:18px;text-align:right;border:1px solid #ccc;border-radius:5px;}
-        .e{width:50px;height:50px;margin:5px;font-size:18px;cursor:pointer;background-color:#007bff;color:#fff;border:none;border-radius:5px;}
-        .e:hover{background-color:#0056b3;}
-    </style>
-</head>
-<body>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
     <div id="q">
-        <input type="text" class="w" id="r" readonly>
-        <div>
-            <button class="e" onclick="a('7')">7</button>
-            <button class="e" onclick="a('8')">8</button>
-            <button class="e" onclick="a('9')">9</button>
-            <button class="e" onclick="b('/')">/</button>
-        </div>
-        <div>
-            <button class="e" onclick="a('4')">4</button>
-            <button class="e" onclick="a('5')">5</button>
-            <button class="e" onclick="a('6')">6</button>
-            <button class="e" onclick="b('*')">*</button>
-        </div>
-        <div>
-            <button class="e" onclick="a('1')">1</button>
-            <button class="e" onclick="a('2')">2</button>
-            <button class="e" onclick="a('3')">3</button>
-            <button class="e" onclick="b('-')">-</button>
-        </div>
-        <div>
-            <button class="e" onclick="a('0')">0</button>
-            <button class="e" onclick="c()">C</button>
-            <button class="e" onclick="d()">=</button>
-            <button class="e" onclick="b('+')">+</button>
-        </div>
+      <input type="text" class="w" id="r" readonly />
+      <div>
+        <button class="e" onclick="a('7')">7</button>
+        <button class="e" onclick="a('8')">8</button>
+        <button class="e" onclick="a('9')">9</button>
+        <button class="e" onclick="b('/')">/</button>
+      </div>
+      <div>
+        <button class="e" onclick="a('4')">4</button>
+        <button class="e" onclick="a('5')">5</button>
+        <button class="e" onclick="a('6')">6</button>
+        <button class="e" onclick="b('*')">*</button>
+      </div>
+      <div>
+        <button class="e" onclick="a('1')">1</button>
+        <button class="e" onclick="a('2')">2</button>
+        <button class="e" onclick="a('3')">3</button>
+        <button class="e" onclick="b('-')">-</button>
+      </div>
+      <div>
+        <button class="e" onclick="a('0')">0</button>
+        <button class="e" onclick="c()">C</button>
+        <button class="e" onclick="d()">=</button>
+        <button class="e" onclick="b('+')">+</button>
+      </div>
     </div>
 
-    <script>
-        let s=document.getElementById('r');
-        let t='';
-        let u='';
-        let v='';
-
-        function a(x){
-            t+=x;
-            s.value=t;
-        }
-
-        function b(y){
-            u=t;
-            v=y;
-            t='';
-            s.value='';
-        }
-
-        function c(){
-            t='';
-            u='';
-            v='';
-            s.value='';
-        }
-
-        function d(){
-            let w=0;
-            if(v=='+')w=parseFloat(u)+parseFloat(t);
-            else if(v=='-')w=parseFloat(u)-parseFloat(t);
-            else if(v=='*')w=parseFloat(u)*parseFloat(t);
-            else if(v=='/')w=parseFloat(u)/parseFloat(t);
-            s.value=w;
-            t=w.toString();
-        }
-    </script>
-</body>
+    <script src="app.js"></script>
+  </body>
 </html>

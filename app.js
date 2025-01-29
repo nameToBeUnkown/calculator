@@ -13,42 +13,39 @@ function chooseOperation(operation) {
     if (firstOperand !== "") {
         calculateResult();
     }
-    firstOperand = currentInput;
+    firstOperand = parseFloat(currentInput);
     currentOperation = operation;
     currentInput = "";
 }
 
-function clearDisplay() {
-    currentInput = "";
+function setDisplayValue(value = "") {
+    currentInput = value;
+    display.value = parseFloat(value);
     firstOperand = "";
     currentOperation = "";
-    display.value = "";
 }
 
 function calculateResult() {
     if (currentInput === "" || firstOperand === "") return;
     let result;
-    const secondOperand = currentInput;
+    const secondOperand = parseFloat(currentInput);
 
     switch (currentOperation) {
         case "+":
-            result = parseFloat(firstOperand) + parseFloat(secondOperand);
+            result = firstOperand + secondOperand;
             break;
         case "-":
-            result = parseFloat(firstOperand) - parseFloat(secondOperand);
+            result = firstOperand - secondOperand;
             break;
         case "*":
-            result = parseFloat(firstOperand) * parseFloat(secondOperand);
+            result = firstOperand * secondOperand;
             break;
         case "/":
-            result = parseFloat(firstOperand) / parseFloat(secondOperand);
+            result = firstOperand / secondOperand;
             break;
         default:
             return;
     }
 
-    display.value = result;
-    currentInput = result.toString();
-    firstOperand = "";
-    currentOperation = "";
+    setDisplayValue(result);
 }

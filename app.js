@@ -4,6 +4,12 @@ let currentOperation = "";
 const display = document.getElementById("display");
 
 function appendNumber(number) {
+    if (display.value === "Error" || display.value === "Infinity") {
+        clearDisplay();
+    }
+    if (currentInput === "" && firstOperand === "" && currentOperation === "") {
+        display.value = "";
+    }
     currentInput += number;
     display.value = currentInput;
 }
@@ -30,6 +36,11 @@ function calculateResult() {
     let result;
     const secondOperand = currentInput;
 
+    if (currentOperation === "/" && parseFloat(secondOperand) === 0) {
+        display.value = "Error";
+        return;
+    }
+
     switch (currentOperation) {
         case "+":
             result = parseFloat(firstOperand) + parseFloat(secondOperand);
@@ -52,3 +63,4 @@ function calculateResult() {
     firstOperand = "";
     currentOperation = "";
 }
+

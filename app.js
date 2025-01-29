@@ -64,3 +64,10 @@ function calculateResult() {
     currentOperation = "";
 }
 
+function toggleSign() {
+    if (currentInput !== "") {
+        currentInput = (parseFloat(currentInput) * -1).toString();
+        display.value = currentInput;
+    }
+}
+

@@ -4,6 +4,12 @@ let currentOperation = "";
 const display = document.getElementById("display");
 
 function appendNumber(number) {
+    if (display.value === "Error" || display.value === "Infinity") {
+        clearDisplay();
+    }
+    if (currentInput === "" && firstOperand === "" && currentOperation === "") {
+        display.value = "";
+    }
     currentInput += number;
     display.value = currentInput;
 }

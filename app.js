@@ -4,7 +4,7 @@ let currentOperation = "";
 const display = document.getElementById("display");
 
 function appendNumber(number) {
-    currentInput += number;
+    currentInput = parseFloat(currentInput + number);
     display.value = currentInput;
 }
 

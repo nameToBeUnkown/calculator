@@ -29,7 +29,11 @@ function calculateResult() {
     if (currentInput === "" || firstOperand === "") return;
     let num1 = parseFloat(firstOperand);
     let num2 = parseFloat(currentInput);
-
+    if (currentOperation === "/" && num2 === 0) {
+        display.value = "Error";
+        currentInput = "";
+        return;
+    }
     let result;
     switch (currentOperation) {
         case "+": result = num1 + num2; break;
